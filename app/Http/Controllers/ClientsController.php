@@ -67,6 +67,28 @@ class ClientsController extends Controller
         return redirect('/clients')->with('success', 'Client added');
     }
 
+    public function fileReturn($id)
+    {
+        $ids = $id;
+        return view('clients.returns')->with('ids', $ids);
+    }
+
+    public function showReturns(Request $request, $id)
+    {
+        $refs = $request->year . "" . $request->month;
+        $gstrs = Gstr::get()
+                ->where('active', 1)
+                ->where('client_id', $id)
+                ->where('ref', $refs);
+        $gstx = Gstr::get()
+                ->where('active', 0)
+                ->where('client_id', $id)
+                ->where('ref', $refs);
+        return view('clients.file')
+                ->with('gstrs', $gstrs)
+                ->with('gstx', $gstx);
+    }
+
     /**
      * Display the specified resource.
      *

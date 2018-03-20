@@ -3,7 +3,7 @@
 
 @section('content')
     <h1>Clients</h3>
-    <a class="btn btn-success btn-sm" href="/gst/public/clients/create" role="button">Add new</a></p>
+    <a class="btn btn-success btn-sm" href="/gstapp/public/clients/create" role="button">Add new</a></p>
     <div class="table-responsive">
             <table class="table table-striped">
               <thead>
@@ -30,13 +30,13 @@
                   <td>{{$client->gstin}}</td>
                   <td>{{$client->number}}</td>
                   <td>{{$client->email}}</td>
-                  <td><a class="btn btn-success btn-sm" href="/gst/public/clients/create" role="button">Edit</a> </td>
-                  <td><a class="btn btn-success btn-sm" href="/gst/public/clients/create" role="button">File returns</a> </td>
+                  <td><a class="btn btn-success btn-sm" href="/gstapp/public/clients/create" role="button">Edit</a> </td>
+                  <td><a class="btn btn-success btn-sm" href="/gstapp/public/clients/file/{{$client->id}}" role="button">File returns</a> </td>
                 </tr>
                 </tbody>
         @endforeach
     @else
-        <p>No posts found</p>
+        <p>No clients found</p>
     @endif
     </table>
 @endsection

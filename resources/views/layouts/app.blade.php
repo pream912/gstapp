@@ -33,10 +33,13 @@
                           <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
                         </li>
                         <li class="nav-item active">
-                            <a class="nav-link" href="/gst/public/clients">Clients <span class="sr-only">(current)</span></a>
+                            <a class="nav-link" href="/gstapp/public/clients">Clients <span class="sr-only">(current)</span></a>
                           </li>
                           <li class="nav-item active">
-                            <a class="nav-link" href="/gst/public/gstrs">GSTR <span class="sr-only">(current)</span></a>
+                            <a class="nav-link" href="/gstapp/public/gstrs">GSTR <span class="sr-only">(current)</span></a>
+                          </li>
+                          <li class="nav-item active">
+                            <a class="nav-link" href="/gstapp/public/settings">Settings <span class="sr-only">(current)</span></a>
                           </li>
                       </ul>
                      
