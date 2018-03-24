@@ -11,8 +11,8 @@
 |
 */
 
-Route::get('/', function (App\Client->All() $clients) {
-    return $clients;
+Route::get('/', function () {
+    return view('welcome');
 });
 
 Route::resource('clients', 'ClientsController');
