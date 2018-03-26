@@ -1,179 +1,57 @@
-@extends('layouts.app')
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Auditing Login</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="robots" content="all,follow">
+    <!-- Bootstrap CSS-->
+    <link rel="stylesheet" href="vendor/bootstrap/css/bootstrap.min.css">
+    <!-- Font Awesome CSS-->
+    <link rel="stylesheet" href="vendor/font-awesome/css/font-awesome.min.css">
+    <!-- Fontastic Custom icon font-->
+    <link rel="stylesheet" href="css/fontastic.css">
+    <!-- Google fonts - Poppins -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:300,400,700">
+    <!-- theme stylesheet-->
+    <link rel="stylesheet" href="css/style.default.css" id="theme-stylesheet">
+    <!-- Custom stylesheet - for your changes-->
+    <link rel="stylesheet" href="css/custom.css">
+    <!-- Favicon-->
+    <!-- Tweaks for older IEs--><!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+        <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script><![endif]-->
+  </head>
+  <body>
+    <div class="page login-page">
+      <div class="container d-flex align-items-center">
 
-@section('content')
+<main role="main" class="inner cover">
+        <h1 class="cover-heading">Cover your page.</h1>
+        <p class="lead">Cover is a one-page template for building simple and beautiful home pages. Download, edit the text, and add your own fullscreen background photo to make it your own.</p>
+        <p class="lead">
+          <a href="/gstapp/public/home" class="btn btn-lg btn-secondary">Go To Dashboard</a>
+        </p>
+      </main>
 
-          <header class="page-header">
-            <div class="container-fluid">
-              <h2 class="no-margin-bottom">Dashboard</h2>
-            </div>
-          </header>
-          <!-- Dashboard Counts Section-->
-          <section class="dashboard-counts no-padding-bottom">
-            <div class="container-fluid">
-              <div class="row bg-white has-shadow">
-                <!-- Item -->
-                <div class="col-xl-4 col-sm-6">
-                  <div class="item d-flex align-items-center">
-                    <div class="icon bg-violet"><i class="icon-user"></i></div>
-                    <div class="title"><span>New<br>Clients</span>
-                      <div class="progress">
-                        <div role="progressbar" style="width: 25%; height: 4px;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100" class="progress-bar bg-violet"></div>
-                      </div>
-                    </div>
-                    <div class="number"><strong>25</strong></div>
-                  </div>
-                </div>
-                <!-- Item -->
-                <div class="col-xl-4 col-sm-6">
-                  <div class="item d-flex align-items-center">
-                    <div class="icon bg-red"><i class="icon-padnote"></i></div>
-                    <div class="title"><span>Pending<br>Files</span>
-                      <div class="progress">
-                        <div role="progressbar" style="width: 70%; height: 4px;" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100" class="progress-bar bg-red"></div>
-                      </div>
-                    </div>
-                    <div class="number"><strong>70</strong></div>
-                  </div>
-                </div>
-                <!-- Item -->
-                <div class="col-xl-4 col-sm-6">
-                  <div class="item d-flex align-items-center">
-                    <div class="icon bg-green"><i class="fa fa-users"></i></div>
-                    <div class="title"><span>No of<br>Clients</span>
-                      <div class="progress">
-                        <div role="progressbar" style="width: 40%; height: 4px;" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" class="progress-bar bg-green"></div>
-                      </div>
-                    </div>
-                    <div class="number"><strong>40</strong></div>
-                  </div>
-                </div>
-            
-              </div>
-            </div>
-          </section>
-        <!--- Dashboard Tables --->
-		<section class="tables">
-		
-		 <div class="col-md-12">
-                  <div class="card">
-				 
-                    <!--<div class="card-close">
-                      <div class="dropdown">
-                        <button type="button" id="closeCard2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="dropdown-toggle"><i class="fa fa-ellipsis-v"></i></button>
-                        <div aria-labelledby="closeCard2" class="dropdown-menu dropdown-menu-right has-shadow"><a href="#" class="dropdown-item remove"> <i class="fa fa-times"></i>Close</a><a href="#" class="dropdown-item edit"> <i class="fa fa-gear"></i>Edit</a></div>
-                      </div>
-                    </div>-->
-                    <div class="card-header d-flex align-items-center">
-                      <h3 class="h4">Overall Report</h3>
-                    </div>
-					<br />
-					<div class="container-fluid">
-					<div class="row">
-					
-						 <select class="form-control col-md-5">
-					<option>--Select Year--</option>
-					<option>2000</option>
-					<option>2010</option>
-					<option>2012</option>
-					<option>2015</option>
-					<option>2017</option>
-					<option>2018</option>
-				  </select>
-				
-				   <select class="form-control col-md-5" style="margin-left:15px;">
-					<option>--Select Month--</option>
-					<option>Jan</option>
-					<option>Feb</option>
-					<option>Mar</option>
-					<option>Apr</option>
-					<option>May</option>
-					<option>Jun</option>
-					<option>Jul</option>
-					<option>Aug</option>
-					<option>Sep</option>
-					<option>Oct</option>
-					<option>Nov</option>
-					<option>Dec</option>
-				  </select>
-					 <button type="submit" class="btn btn-primary btn-sm" style="margin-left:10px;height:38px;">Search</button>
-					</div>
-					
-					</div>
-                    <div class="card-body">
-                      <div class="table-bordered">  
-					  
-                        <table class="table table-hover">
-						
-                          <thead>
-                            <tr>
-                              <th>Month</th>
-							  <th>Jan</th>
-							  <th>Feb</th>
-							  <th>Mar</th>
-							  <th>Apr</th>
-							  <th>May</th>
-							  <th>Jun</th>
-							  <th>Jul</th>
-							  <th>Aug</th>
-							  <th>Sep</th>
-							  <th>Oct</th>
-							  <th>Nov</th>
-							  <th>Dec</th>
-                            </tr>
-                          </thead>
-                          <tbody>
-                            <tr>
-                              <th scope="">Total Business</th>
-                              <td>3</td>
-                              <td>3</td>
-                              <td>1</td>
-                              <td>1</td>
-                              <td>1</td>
-                              <td>1</td>
-                              <td>1</td>
-                              <td>1</td>
-                              <td>1</td>
-                              <td>1</td>
-                              <td>1</td>
-                              <td>1</td>
-                            </tr>
-                          <tr>
-                              <th scope="">Pending</th>
-                              <td>3</td>
-                              <td>3</td>
-                              <td>3</td>
-                              <td>3</td>
-                              <td>3</td>
-                              <td>3</td>
-                              <td>3</td>
-                              <td>3</td>
-                              <td>3</td>
-                              <td>3</td>
-                              <td>3</td>
-                              <td>1</td>
-                            </tr>
-							 <tr>
-                              <th scope="">Complete</th>
-                              <td>3</td>
-                              <td>3</td>
-                              <td>1</td>
-                              <td>1</td>
-                              <td>1</td>
-                              <td>1</td>
-                              <td>1</td>
-                              <td>1</td>
-                              <td>1</td>
-                              <td>1</td>
-                              <td>1</td>
-                              <td>1</td>
-                            </tr>
-							
-                          </tbody>
-                        </table>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-			</section>
 
-@endsection
+
+      </div>
+      <div class="copyrights text-center">
+        <p>Design by <a href="" class="external">Vtech Web Technologies</a>
+        </p>
+      </div>
+    </div>
+    <!-- JavaScript files-->
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/popper.js/umd/popper.min.js"> </script>
+    <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+    <script src="vendor/jquery.cookie/jquery.cookie.js"> </script>
+    <script src="vendor/chart.js/Chart.min.js"></script>
+    <script src="vendor/jquery-validation/jquery.validate.min.js"></script>
+    <!-- Main File-->
+    <script src="js/front.js"></script>
+  </body>
+</html>

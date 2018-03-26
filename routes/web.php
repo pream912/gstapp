@@ -36,3 +36,7 @@ Route::get('/gstrs/inactive/{id}/{ref}', 'GstrsController@setInactive');
 
 Route::get('/settings', 'SettingsController@inactive');
 Route::get('/settings/{id}', 'SettingsController@setActive');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
