@@ -1,6 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
+<?php $yrp = $yr - 1; ?>
 <section class="tables">
     
      <div class="col-md-12">
@@ -134,27 +135,29 @@
 </tr>
 
 @endforeach
-@else
-<p>No posts found</p>
 @endif
 
 @if(count($clients) > 0)
-@foreach($clients as $client)
-    <tr>
-      <td>{{$client->bname}}</td>
-      <td>{{$client->gstin}}</td>
-    <td> <a href="/gstapp/public/gstrs/{{$client->id}}/{{$refs}}/gstr1">
-        Pending
-        </a></td>
-      <td> <a href="/gstapp/public/gstrs/{{$client->id}}/gstr2">
-          Pending
-        </a></td>
-      <td> <a href="/gstapp/public/gstrs/{{$client->id}}/gstr3">
-         Pending
-        </a></td>
-      <td>Pending</td>
-      <td> <a class="btn btn-success btn-sm" href="/gstapp/public/gstrs/inactive/{{$client->id}}/{{$refs}}" role="button">Set inactive</a> </td>
-@endforeach
+    
+      @foreach($clients as $client)
+      @if($client->created_at->year <= $yr && $client->created_at->month <= $mn || $client->created_at->year <= $yr - 1)
+          <tr>
+            <td>{{$client->bname}}</td>
+            <td>{{$client->gstin}}</td>
+          <td> <a href="/gstapp/public/gstrs/{{$client->id}}/{{$refs}}/gstr1">
+              Pending
+              </a></td>
+            <td> <a href="/gstapp/public/gstrs/{{$client->id}}/gstr2">
+                Pending
+              </a></td>
+            <td> <a href="/gstapp/public/gstrs/{{$client->id}}/gstr3">
+              Pending
+              </a></td>
+            <td>Pending</td>
+            <td> <a class="btn btn-success btn-sm" href="/gstapp/public/gstrs/inactive/{{$client->id}}/{{$refs}}" role="button">Set inactive</a> </td>
+            @endif
+      @endforeach
+    
 @endif
 </tbody>
 </table>

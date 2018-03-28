@@ -22,6 +22,8 @@ class GstrsController extends Controller
 
     public function index1(Request $request)
     {
+        $yr = $request->year;
+        $mn = $request->month;
         $refs = $request->year . "" . $request->month;
         $gstrs = Gstr::get()
                 ->where('active', 1)
@@ -32,6 +34,8 @@ class GstrsController extends Controller
         
          return view('gstrs.index1')
                 ->with('gstrs', $gstrs)
+                ->with('yr', $yr)
+                ->with('mn', $mn)
                 ->with('refs', $refs)                
                 ->with('clients', $clients);
     }

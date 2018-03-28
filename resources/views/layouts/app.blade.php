@@ -93,14 +93,20 @@
           </div>
           <!-- Sidebar Navidation Menus--><!--<span class="heading">Main</span>-->
           <ul class="list-unstyled">
-                    <li class=""><a href="/gstapp/public"> <i class="icon-home"></i>Dashboard</a></li>
-                    <li><a href="addclients.php"> <i class="icon-user"></i>Add Clients </a></li>
-                    <li><a href="addgstr.php"> <i class="fa fa-rupee"></i>GSTR </a></li>
-                    <li><a href="#exampledropdownDropdown" aria-expanded="false" data-toggle="collapse"> <i class="icon-interface-windows"></i>View Reports </a>
+                    <li class=""><a href="/gstapp/public/dashboard"> <i class="icon-home"></i>Dashboard</a></li>
+                    <li><a href="#clientsDropdown" aria-expanded="false" data-toggle="collapse"> <i class="icon-user"></i>Clients </a>
+                      <ul id="clientsDropdown" class="collapse list-unstyled ">
+                          <li><a href="/gstapp/public/clients">View Clients</a></li>
+                          <li><a href="/gstapp/public/clients/create">Add Client</a></li>
+                       
+                        </ul>
+                    </li>
+                    <li><a href="/gstapp/public/gstrs"> <i class="icon-padnote"></i>GSTR </a></li>
+                    <li><a href="#exampledropdownDropdown" aria-expanded="false" data-toggle="collapse"> <i class="icon-paper-airplane"></i>Settings </a>
                       <ul id="exampledropdownDropdown" class="collapse list-unstyled ">
-                        <li><a href="#">View Clients</a></li>
-                        <li><a href="/gstapp/public/gstrs">View GSTR</a></li>
-                     
+                        <li><a href="/gstapp/public/settings">Inactive records</a></li>
+                        <li><a href="/gstapp/public/gstrs">Configuration</a></li>
+                        <li><a href="/gstapp/public/gstrs">User management</a></li>
                       </ul>
                     </li>
                     

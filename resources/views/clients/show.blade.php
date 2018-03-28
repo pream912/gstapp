@@ -13,7 +13,7 @@
                   <div class="breadcrumb-holder container-fluid">
                     <ul class="breadcrumb">
                       <li class="breadcrumb-item"><a href="index.php">Home</a></li>
-                      <li class="breadcrumb-item active">Add Clients  </li>
+                      <li class="breadcrumb-item active"> {{$clients->bname}}  </li>
                     </ul>
                   </div>
                   <!-- Forms Section-->
@@ -26,7 +26,7 @@
                           <div class="card">
                        
                             <div class="card-body">
-                                {!! Form::open(['action' => 'ClientsController@store', 'method' => 'POST']) !!}
+                                {!! Form::open() !!}
                               
                                 <div class="form-group row">
                                  
@@ -34,7 +34,7 @@
                                     <div class="form-group">
                                       <div class="input-group">
                                         <div class="input-group-prepend"></div>
-                                        {{Form::text('name', '', ['class' => 'form-control', 'placeholder' => 'Client name'])}}
+                                        {{Form::text('name', '', ['class' => 'form-control', 'placeholder' => $clients->name])}}
                                       </div>
                                     </div>
                                   </div>
@@ -43,7 +43,7 @@
                                     <div class="form-group">
                                       <div class="input-group">
                                         <div class="input-group-prepend"></div>
-                                        {{Form::text('bname', '', ['class' => 'form-control', 'placeholder' => 'eg. Apple inc'])}}
+                                        {{Form::text('bname', '', ['class' => 'form-control', 'placeholder' => $clients->bname])}}
                                       </div>
                                     </div>
                                   </div>
@@ -52,7 +52,7 @@
                                     <div class="form-group">
                                       <div class="input-group">
                                         <div class="input-group-prepend"></div>
-                                        {{Form::text('gstin', '', ['class' => 'form-control', 'placeholder' => 'GSTIN'])}}
+                                        {{Form::text('gstin', '', ['class' => 'form-control', 'placeholder' => $clients->gstin])}}
                                       </div>
                                     </div>
                                   </div>
@@ -70,7 +70,7 @@
                                     <div class="form-group">
                                       <div class="input-group">
                                         <div class="input-group-prepend"></div>
-                                        {{Form::text('pan', '', ['class' => 'form-control', 'placeholder' => 'PAN no.'])}}
+                                        {{Form::text('pan', '', ['class' => 'form-control', 'placeholder' => $clients->pan])}}
                                       </div>
                                     </div>
                                   </div>
@@ -79,7 +79,7 @@
                                     <div class="form-group">
                                       <div class="input-group">
                                         <div class="input-group-prepend"></div>
-                                        {{Form::text('number', '', ['class' => 'form-control', 'placeholder' => 'eg, 9999999999'])}}
+                                        {{Form::text('number', '', ['class' => 'form-control', 'placeholder' => $clients->number])}}
                                       </div>
                                     </div>
                                   </div>
@@ -88,17 +88,11 @@
                                     <div class="form-group">
                                       <div class="input-group">
                                         <div class="input-group-prepend"></div>
-                                        {{Form::text('email', '', ['class' => 'form-control', 'placeholder' => 'eg, pream@gmail.com'])}}
+                                        {{Form::text('email', '', ['class' => 'form-control', 'placeholder' => $clients->email])}}
                                       </div>
                                     </div>
                                   </div>
                                   
-                                </div>
-                                <div class="form-group row">
-                                  <div class="col-sm-4 offset-sm-3">
-                                        {{form::submit('Submit', ['class'=>'btn-primary'])}}
-                                        {{form::reset('Reset', ['class'=>'btn-primary'])}}
-                                  </div>
                                 </div>
                                 {!! Form::close() !!}
                             </div>

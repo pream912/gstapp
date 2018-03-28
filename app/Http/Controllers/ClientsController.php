@@ -97,7 +97,8 @@ class ClientsController extends Controller
      */
     public function show($id)
     {
-        //
+        $clients = Client::find($id);
+        return view('clients.show')->with('clients', $clients);
     }
 
     /**
