@@ -91,9 +91,9 @@
             </a>
           
           @else
-          
-          {{$gstr->gstr1}}
-          
+          <a href="/gstapp/public/gstrs/{{$gstr->id}}">
+          Done
+          </a>
           @endif
           </td>
           <td>
@@ -105,7 +105,9 @@
           
           @else
           
-          {{$gstr->gstr2}}
+          <a href="/gstapp/public/gstrs/{{$gstr->id}}/s1">
+            Done
+            </a>
          
           @endif</td>
           <td>
@@ -117,7 +119,9 @@
           
           @else
           
-          {{$gstr->gstr3}}
+          <a href="/gstapp/public/gstrs/{{$gstr->id}}/s2">
+            Done
+            </a>
           
           @endif</td>
           
@@ -140,7 +144,8 @@
 @if(count($clients) > 0)
     
       @foreach($clients as $client)
-      @if($client->created_at->year <= $yr && $client->created_at->month <= $mn || $client->created_at->year <= $yr - 1)
+      <?php $time = \Carbon\Carbon::parse($client->enroll) ?>
+      @if($time->year <= $yr && $time->month <= $mn || $time->year <= $yr - 1)
           <tr>
             <td>{{$client->bname}}</td>
             <td>{{$client->gstin}}</td>
@@ -154,7 +159,7 @@
               Pending
               </a></td>
             <td>Pending</td>
-            <td> <a class="btn btn-success btn-sm" href="/gstapp/public/gstrs/inactive/{{$client->id}}/{{$refs}}" role="button">Set inactive</a> </td>
+            <td> <a class="btn btn-danger btn-sm" href="/gstapp/public/gstrs/inactive/{{$client->id}}/{{$refs}}" role="button">Set inactive</a> </td>
             @endif
       @endforeach
     

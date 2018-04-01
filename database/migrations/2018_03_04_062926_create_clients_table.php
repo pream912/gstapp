@@ -22,6 +22,8 @@ class CreateClientsTable extends Migration
             $table->string('type');
             $table->string('email');
             $table->string('number');
+            $table->string('enroll');
+            $table->integer('active');
             $table->timestamps();
         });
     }

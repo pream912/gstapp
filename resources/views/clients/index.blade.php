@@ -30,26 +30,26 @@
                   <th>Gstin</th>
                   <th>Phone</th>
                   <th>Email</th>
-                  <th> </th>
-                  <th> </th>
+                  
                 </tr>
     @if(count($clients) > 0)
+    <?php $i = '1'; ?>
         @foreach($clients as $client)
             
               </thead>
               <tbody>
                 <tr>
 
-                  <td>{{$client->id}}</td>
+                  <td>{{$i}}</td>
                   <td><a href="/gstapp/public/clients/{{$client->id}}">{{$client->name}}</a></td>
                   <td>{{$client->bname}}</td>
                   <td>{{$client->gstin}}</td>
                   <td>{{$client->number}}</td>
                   <td>{{$client->email}}</td>
-                  <td><a class="btn btn-success btn-sm" href="/gstapp/public/clients/create" role="button">Edit</a> </td>
-                  <td><a class="btn btn-success btn-sm" href="/gstapp/public/clients/file/{{$client->id}}" role="button">File returns</a> </td>
+                  
                 </tr>
                 </tbody>
+                <?php $i++; ?>
         @endforeach
     @else
         <p>No clients found</p>

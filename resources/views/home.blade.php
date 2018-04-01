@@ -43,7 +43,8 @@
            
 
             @foreach($clients as $client)
-                @if($client->created_at->year == '2018')
+            <?php $time = \Carbon\Carbon::parse($client->enroll) ?>
+                @if($time->year == '2018')
                     <?php $newusr++; ?>
                 @endif
             @endforeach
@@ -82,7 +83,8 @@
             @while($i <=3)
             <?php $t[$i] = '0'; ?>
                 @foreach($clients as $client)
-                    @if($client->created_at->year <= '2018' && $client->created_at->month <= $i || $client->created_at->year <= '2017')
+                <?php $time = \Carbon\Carbon::parse($client->enroll) ?>
+                    @if($time->year <= '2018' && $time->month <= $i || $time->year <= '2017')
                         <?php $tu++; ?>
                         <?php $t[$i]++; ?>                  
                     @endif
@@ -94,7 +96,8 @@
             @while($i <=12)
             <?php $t[$i] = '0'; ?>
                 @foreach($clients as $client)
-                    @if($client->created_at->year <= '2017' && $client->created_at->month <= $i || $client->created_at->year <= '2016')
+                <?php $time = \Carbon\Carbon::parse($client->enroll) ?>
+                    @if($time->year <= '2017' && $time->month <= $i || $time->year <= '2016')
                         <?php $tu++; ?>
                         <?php $t[$i]++; ?>                  
                     @endif
@@ -236,18 +239,18 @@
                           <tbody>
                             <tr>
                                 <th scope="">Total Business</th>
-                                <td>{{$t[4]}}</td>
-                                <td>{{$t[5]}}</td>
-                                <td>{{$t[6]}}</td>
-                                <td>{{$t[7]}}</td>
-                                <td>{{$t[8]}}</td>
-                                <td>{{$t[9]}}</td>
-                                <td>{{$t[10]}}</td>
-                                <td>{{$t[11]}}</td>
-                                <td>{{$t[12]}}</td>
-                                <td>{{$t[1]}}</td>
-                                <td>{{$t[2]}}</td>
-                                <td>{{$t[3]}}</td>
+                                <td>{{$t[4] - $a[4]}}</td>
+                                <td>{{$t[5] - $a[5]}}</td>
+                                <td>{{$t[6] - $a[6]}}</td>
+                                <td>{{$t[7] - $a[7]}}</td>
+                                <td>{{$t[8] - $a[8]}}</td>
+                                <td>{{$t[9] - $a[9]}}</td>
+                                <td>{{$t[10] - $a[10]}}</td>
+                                <td>{{$t[11] - $a[11]}}</td>
+                                <td>{{$t[12] - $a[12]}}</td>
+                                <td>{{$t[1] - $a[1]}}</td>
+                                <td>{{$t[2] - $a[2]}}</td>
+                                <td>{{$t[3] - $a[3]}}</td>
                             </tr>
                             <tr>
                                 <th scope="">Inactive</th>

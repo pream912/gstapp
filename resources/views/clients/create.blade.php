@@ -32,8 +32,10 @@
                                  
                                   <div class="col-sm-12 col-md-12">
                                     <div class="form-group">
+                                        {{Form::label('name', 'Name:')}}
                                       <div class="input-group">
                                         <div class="input-group-prepend"></div>
+                                        
                                         {{Form::text('name', '', ['class' => 'form-control', 'placeholder' => 'Client name'])}}
                                       </div>
                                     </div>
@@ -41,6 +43,7 @@
                                   
                                   <div class="col-sm-12 col-md-12">
                                     <div class="form-group">
+                                        {{Form::label('bname', 'Business Name:')}}
                                       <div class="input-group">
                                         <div class="input-group-prepend"></div>
                                         {{Form::text('bname', '', ['class' => 'form-control', 'placeholder' => 'eg. Apple inc'])}}
@@ -50,6 +53,7 @@
                                   
                                 <div class="col-sm-12 col-md-12">
                                     <div class="form-group">
+                                        {{Form::label('gstin', 'GSTIN:')}}
                                       <div class="input-group">
                                         <div class="input-group-prepend"></div>
                                         {{Form::text('gstin', '', ['class' => 'form-control', 'placeholder' => 'GSTIN'])}}
@@ -59,6 +63,7 @@
                                   
                                       <div class="col-sm-12 col-md-12">
                                     <div class="form-group">
+                                        {{Form::label('type', 'Business Type:')}}
                                       <div class="input-group">
                                         <div class="input-group-prepend"></div>
                                         {{Form::select('type', ['---Select business type---','PR' => 'Proprietorship', 'P' => 'Partnership', 'LLP' => 'LLP', 'LLC' => 'LLC', 'PL' => 'Private. Ltd.'])}}
@@ -68,6 +73,7 @@
                                   
                                       <div class="col-sm-12 col-md-12">
                                     <div class="form-group">
+                                        {{Form::label('pan', 'PAN no.:')}}
                                       <div class="input-group">
                                         <div class="input-group-prepend"></div>
                                         {{Form::text('pan', '', ['class' => 'form-control', 'placeholder' => 'PAN no.'])}}
@@ -77,6 +83,7 @@
                                   
                                       <div class="col-sm-12 col-md-12">
                                     <div class="form-group">
+                                        {{Form::label('number', 'Contact no.:')}}
                                       <div class="input-group">
                                         <div class="input-group-prepend"></div>
                                         {{Form::text('number', '', ['class' => 'form-control', 'placeholder' => 'eg, 9999999999'])}}
@@ -86,10 +93,20 @@
                                   
                                   <div class="col-sm-12 col-md-12">
                                     <div class="form-group">
+                                        {{Form::label('email', 'Email:')}}
                                       <div class="input-group">
                                         <div class="input-group-prepend"></div>
                                         {{Form::text('email', '', ['class' => 'form-control', 'placeholder' => 'eg, pream@gmail.com'])}}
                                       </div>
+                                    </div>
+                                  </div>
+                                  <div class="col-sm-12 col-md-12">
+                                    <div class="form-group">
+                                        {{Form::label('enroll', 'Time of Enrollment:')}}
+                                      <div class="input-group">
+                                        <div class="input-group-prepend"></div>
+                                        {{Form::date('enroll', \Carbon\Carbon::now())}}                                          
+                                    </div>
                                     </div>
                                   </div>
                                   

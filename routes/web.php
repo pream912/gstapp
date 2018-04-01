@@ -20,6 +20,8 @@ Route::resource('clients', 'ClientsController');
 Route::get('/clients/file/{id}', 'ClientsController@fileReturn');
 Route::put('/clients/file/{id}/returns', 'ClientsController@showReturns');
 
+Route::post('/clients/email', 'ClientsController@sendmail');
+
 Route::resource('gstrs', 'GstrsController');
 
 Route::post('/gstrs/view', 'GstrsController@index1');
@@ -31,6 +33,9 @@ Route::get('/gstrs/{gstr}/gstr3', 'GstrsController@gstr3');
 Route::put('/gstrs/{gstr}/{ref}/gsu1', 'GstrsController@store1');
 Route::put('/gstrs/{gstr}/gsu2', 'GstrsController@store2');
 Route::put('/gstrs/{gstr}/gsu3', 'GstrsController@store3');
+
+Route::get('/gstrs/{gstr}/s1', 'GstrsController@show1');
+Route::get('/gstrs/{gstr}/s2', 'GstrsController@show2');
 
 Route::get('/gstrs/inactive/{id}/{ref}', 'GstrsController@setInactive');
 

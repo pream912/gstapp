@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Client;
 use App\Gstr;
+use Mail;
+use Session;
 
 
 class ClientsController extends Controller
@@ -53,6 +55,8 @@ class ClientsController extends Controller
         $client->pan = $request->input('pan');
         $client->number = $request->input('number');
         $client->email = $request->input('email');
+        $client->enroll = $request->input('enroll');
+        $client->active = 1;
         $client->save();
 
        // $gstr = new Gstr;
@@ -109,7 +113,8 @@ class ClientsController extends Controller
      */
     public function edit($id)
     {
-        //
+        $clients = Client::find($id);
+        return view('clients.edit')->with('clients', $clients);
     }
 
     /**
@@ -121,7 +126,36 @@ class ClientsController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        
+        $client = Client::find($id);
+        $client->name = $request->input('name');
+        $client->bname = $request->input('bname');
+        $client->gstin = $request->input('gstin');
+        $client->pan = $request->input('pan');
+        $client->number = $request->input('number');
+        $client->email = $request->input('email');
+        $client->enroll = $request->input('enroll');
+        $client->save();
+        return redirect('/clients')->with('success', 'Client added');
+    }
+
+    public function sendmail(Request $request)
+    {
+        
+
+        $data = array(
+            'email' => $request->c_email,
+            'subject' => $request->subject,
+            'bodyMessage' => $request->message_text
+        );
+
+    Mail::send('emails.template1', $data, function($message) use ($data){
+        $message->to($data['email']);
+        $message->from('preamkumar912@gmail.com');
+        $message->subject($data['subject']);
+    });
+    Session::flash('success', 'Your mail was Sent');
+    return redirect('/clients');
     }
 
     /**

@@ -4,8 +4,10 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Gstr;
+use App\User;
 use App\Client;
 use Carbon\Carbon; 
+use Illuminate\Support\Facades\Auth;
 
 class GstrsController extends Controller
 {
@@ -103,6 +105,9 @@ class GstrsController extends Controller
         $gstr->gstr3 = '';
         $gstr->ref = $ref;
         $gstr->active = 1;
+        $gstr->g1_uid = Auth::id();
+        $gstr->g2_uid = 0;
+        $gstr->g3_uid = 0;
         $gstr->save();
     
             return redirect('/gstrs')->with('success', 'GSTR3 updated');
@@ -124,6 +129,7 @@ class GstrsController extends Controller
 
         $gstr = Gstr::find($id);
         $gstr->gstr2 = $fileNameToStore;
+        $gstr->g2_uid = Auth::id();
         $gstr->save();
     
             return redirect('/gstrs')->with('success', 'GSTR2 updated');
@@ -146,6 +152,7 @@ class GstrsController extends Controller
 
         $gstr = Gstr::find($id);
         $gstr->gstr3 = $fileNameToStore;
+        $gstr->g3_uid = Auth::id();
         $gstr->save();
     
             return redirect('/gstrs')->with('success', 'GSTR3 updated');
@@ -181,7 +188,29 @@ class GstrsController extends Controller
      */
     public function show($id)
     {
-        //
+        $gstr = Gstr::find($id);
+        $user = User::find($gstr->g1_uid);
+        $userName = $user->name;
+        return view('gstrs.show')->with('gstr', $gstr)
+                                 ->with('userName', $userName);
+    }
+
+    public function show1($id)
+    {
+        $gstr = Gstr::find($id);
+        $user = User::find($gstr->g2_uid);
+        $userName = $user->name;
+        return view('gstrs.show1')->with('gstr', $gstr)
+                                 ->with('userName', $userName);
+    }
+
+    public function show2($id)
+    {
+        $gstr = Gstr::find($id);
+        $user = User::find($gstr->g3_uid);
+        $userName = $user->name;
+        return view('gstrs.show2')->with('gstr', $gstr)
+                                 ->with('userName', $userName);
     }
 
     /**

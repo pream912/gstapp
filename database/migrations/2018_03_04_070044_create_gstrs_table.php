@@ -16,6 +16,9 @@ class CreateGstrsTable extends Migration
         Schema::create('gstrs', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('client_id');
+            $table->integer('g1_uid');
+            $table->integer('g2_uid');
+            $table->integer('g3_uid');
             $table->string('gstr1');
             $table->string('gstr2');
             $table->string('gstr3');

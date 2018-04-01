@@ -130,6 +130,37 @@
                             </div>
                         </div>
 
+                        <div class="form-group{{ $errors->has('role') ? ' has-error' : '' }}">
+                            <label for="role" class="col-md-4 control-label">Role</label>
+
+                            <div class="col-md-6">
+                                <select id="role" class="form-control" name="role">
+                                    <option value="admin">Admin</option>
+                                    <option value="sub">Subordinate</option>
+                                  </select>
+
+                                @if ($errors->has('role'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('role') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
+
+                        <div class="form-group{{ $errors->has('designation') ? ' has-error' : '' }}">
+                            <label for="designation" class="col-md-4 control-label">Designation</label>
+
+                            <div class="col-md-6">
+                                <input id="designation" type="text" class="form-control" name="designation" required>
+
+                                @if ($errors->has('designation'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('designation') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
+
                         <div class="form-group">
                             <div class="col-md-6 col-md-offset-4">
                                 <button type="submit" class="btn btn-primary">
